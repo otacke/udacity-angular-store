@@ -8,7 +8,9 @@ import Product from '../models/product';
   providedIn: 'root'
 })
 export class ProductService {
-  private dataSource = 'https://raw.githubusercontent.com/udacity/nd-0067-c3-angular-fundamentals-project-starter/main/src/assets/data.json';
+  // Could also use the remote data source
+  // private dataSource = 'https://raw.githubusercontent.com/udacity/nd-0067-c3-angular-fundamentals-project-starter/main/src/assets/data.json';
+  private dataSource = 'assets/data.json';
 
   /**
    * @constructor
