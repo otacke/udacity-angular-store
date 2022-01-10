@@ -1,0 +1,69 @@
+@import '../../../styles';
+
+.product-container {
+  display: flex;
+  flex-direction: row;
+
+  .image-wrapper {
+    margin-right: 1em;
+    width: 100%;
+
+    .product-image {
+      flex-grow: 0;
+      transition: filter .1s ease-in-out;
+      width: 100%;
+
+      &:hover {
+        filter: brightness(110%);
+      }
+    }
+  }
+
+  .product-details {
+    flex-grow: 1;
+    width: 50%;
+
+    .name {
+      font-size: 1.25em;
+      font-weight: bold;
+      margin-bottom: .5em;
+    }
+
+    .price {
+      font-style: italic;
+      margin-bottom: 1.5em;
+    }
+
+    .quantity {
+      margin-bottom: .5em;
+
+      input {
+        box-sizing: border-box;
+        height: 2em;
+        line-height: 2.5em;
+        width: 100%;
+      }
+    }
+
+    .submit {
+      .submit-button {
+        height: $button-default-height;
+        border-radius: $button-default-border-radius;
+        border-width: .1em;
+        transition: filter .1s ease-in-out;
+        width: 100%;
+
+        &:not([disabled]) {
+          background-color: $main-color;
+          border-color: $main-color-darker;
+          color: $main-color-contrast;
+
+          &:hover {
+            cursor: pointer;
+            filter: brightness(110%);
+          }
+        }
+      }
+    }
+  }
+}

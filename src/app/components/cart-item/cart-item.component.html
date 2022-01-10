@@ -1,0 +1,13 @@
+<div class="cart-item">
+  <div class="cart-item-image-wrapper">
+    <a routerLink="/products/{{ product.id }}">
+      <img class="cart-item-image" src="{{ product.url }}" />
+    </a>
+  </div>
+  <div class="cart-item-details">
+    <div class="name">{{ product.name }}</div>
+    <div class="price">{{ product.price | currency: 'USD' }}</div>
+    <input name="quantity" class="quantity" type="number" [(ngModel)]="quantity" (ngModelChange)="handleQuantityChanged($event)"/>
+    <div class="subtotal">Subtotal: {{ product.price * quantity | currency: 'USD' }}</div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="confirmation-container" *ngIf="orderDetails?.cart?.items !== null">
+  <div class="symbol-sent"></div>
+  <div class="intro">Hey, {{ orderDetails.fullName }}!</div>
+  <p class="text">You have just spent {{ orderDetails.cart.cartValue | currency: 'USD' }} on some really nice stuff and our worker bees are buzzing to fulfill your order. They'll fly it to {{ orderDetails.address }} within three days - usually ...</p>
+  <p class="outro">Thanks for your "buzziness"! Take care!</p>
+</div>
+<div class="confirmation-container" *ngIf="!orderDetails || orderDetails?.cart?.items === null">
+  <div class="symbol-empty"></div>
+  <div class="intro">There's no order yet :-/</div>
+  <div class="text">Why not have a <a routerLink="/">look at what we have in stock!</a>?</div>
+</div>

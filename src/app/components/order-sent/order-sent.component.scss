@@ -1,0 +1,41 @@
+.confirmation-container {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1em;
+  width: 100%;
+
+  .symbol-empty {
+    margin-bottom: 1em;
+
+    &::before {
+      content: "🤑";
+      font-size: 5em;
+    }
+  }
+
+  .symbol-sent {
+    margin-bottom: 1em;
+
+    &::before {
+      content: "🐝";
+      font-size: 5em;
+    }
+  }
+
+  .intro {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: .5em;
+  }
+
+  .text {
+    margin-bottom: .5em;
+  }
+
+  .outro {
+    font-style: italic;
+    margin-bottom: .5em;
+  }
+}

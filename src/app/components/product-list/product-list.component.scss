@@ -1,0 +1,9 @@
+.product-container {
+  box-sizing: border-box;
+  column-gap: 3em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 0 1em;
+  row-gap: 1em;
+  width: 100%;
+}

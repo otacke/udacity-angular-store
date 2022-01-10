@@ -1,0 +1,39 @@
+@import '../../../styles';
+
+.navigation-bar {
+  background-color: $main-color;
+  display: flex;
+  font-size: 1.25em;
+  justify-content: center;
+  margin-bottom: 1em;
+  position: sticky;
+  text-align: center;
+  top: 0;
+  z-index: 1;
+
+  .link {
+    line-height: 3em;
+    width: 100%;
+
+    a {
+      color: $main-color-contrast;
+      transition: font-size .1s ease-in-out;
+
+      &::before {
+        padding-right: .25em;
+      }
+
+      &.product-list::before {
+        content: "🏪";
+      }
+
+      &.shopping-cart::before {
+        content: "🛒";
+      }
+
+      &:hover {
+        font-size: 1.1em
+      }
+    }
+  }
+}

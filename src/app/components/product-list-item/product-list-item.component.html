@@ -1,0 +1,21 @@
+<div class="product-container">
+  <div class="image-wrapper">
+    <a routerLink="/products/{{ product.id }}">
+      <img class="product-image" src="{{ product.url }}" />
+    </a>
+  </div>
+
+  <div class="product-details">
+    <div class="name">{{ product.name }}</div>
+    <div class="price">{{ product.price | currency: 'USD' }}</div>
+    <form (ngSubmit)="handleItemAdded()">
+      <div class="quantity">
+        <div class="label">Select quantity</div>
+        <input name="quantity" class="number-input" type="number" [(ngModel)]="quantity" #quant="ngModel" min="1">
+      </div>
+      <div class="submit">
+        <input type="submit" value="Add to cart" class="submit-button" [disabled]="quant.invalid"/>
+      </div>
+    </form>
+  </div>
+</div>

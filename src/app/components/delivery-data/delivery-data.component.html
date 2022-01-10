@@ -1,0 +1,28 @@
+<div class="cart-container">
+  <div class="empty-cart-message" *ngIf="!cartItemList || !cartItemList.length">
+    <div class="symbol-cart"></div>
+    <div class="intro">Your shopping cart is empty.</div>
+    <div class="text">Why not have a <a routerLink="/">look at what we have in stock!</a>?</div>
+  </div>
+  <div class="cart-items">
+    <app-cart-item *ngFor="let cartItem of cartItemList" [product]="cartItem.product" [quantity]="cartItem.quantity" (quantityEmitter)="handleQuantityChanged($event)"></app-cart-item>
+  </div>
+  <div class="total" *ngIf="cartItemList !== undefined && cartItemList.length !== 0">Total: {{ cart.cartValue | currency: 'USD' }}</div>
+  <div class="cart-panel" *ngIf="cartItemList !== undefined && cartItemList.length !== 0">
+    <form class="delivery-data" #orderForm="ngForm" (ngSubmit)="sendOrder()">
+      <div class="full-name">
+        <label for="full-name">Full name</label><br />
+        <input type="text" name="full-name" [(ngModel)]="fullName" placeholder="Homer Simpson" required minlength="6">
+      </div>
+      <div class="address">
+        <label for="address">Address</label><br />
+        <input type="text" name="address" [(ngModel)]="address" placeholder="742 Evergreen Terrace, Springfield" required minlength="12">
+      </div>
+      <div class="credit-card-number">
+        <label for="credit-card-number">Credit card number</label><br />
+        <input type="string" name="credit-card" [(ngModel)]="creditCardNumber" placeholder="16 digits" required pattern="^[0-9]{16,}$" minlength="16" maxlength="16">
+      </div>
+      <button type="submit" class="submit-button" [disabled]="orderForm.invalid">Send order</button>
+    </form>
+  </div>
+</div>

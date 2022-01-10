@@ -1,0 +1,71 @@
+@import '../../../styles';
+
+.detail-container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 1em;
+
+  .product-image {
+    margin-right: 2em;
+    max-height: 90vh;
+    max-width: 50%;
+  }
+
+  .detail-item {
+    .name {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: .5em;
+    }
+
+    .description {
+      margin-bottom: .5em;
+    }
+
+    .price {
+      font-style: italic;
+      margin-bottom: 1.5em;
+    }
+
+    .quantity {
+      margin-bottom: .5em;
+
+      input {
+        height: 1.75em;
+        line-height: 2em;
+        width: 100%;
+      }
+    }
+
+    .submit {
+      .submit-button {
+        height: $button-default-height;
+        border-radius: $button-default-border-radius;
+        border-width: .1em;
+        transition: filter .1s ease-in-out;
+
+        &:not([disabled]) {
+          background-color: $main-color;
+          border-color: $main-color-darker;
+          color: $main-color-contrast;
+
+          &:hover {
+            cursor: pointer;
+            filter: brightness(110%);
+          }
+        }
+      }
+    }
+  }
+
+  .back {
+    margin-top: 1em;
+
+    &::before {
+      content: "🔙";
+      padding-right: .5em;
+    }
+  }
+}
