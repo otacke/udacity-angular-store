@@ -79,6 +79,7 @@ export class CartService {
       }
       else {
         // Removed last of the product items
+        alert(`We have remove the last item of ${this.cart.items[productId].product.name} from your shopping cart.`);        
         delete this.cart.items[productId];
       }
     }
