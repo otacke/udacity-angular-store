@@ -89,5 +89,21 @@
         }
       }
     }
+
+    .error {
+      margin-top: 1em;
+      padding: .75em;
+
+      .message {
+        margin-bottom: .25em;
+        padding-left: 2em;
+        text-indent: -1.75em;
+
+        &::before {
+          content: "🥺";
+          margin-right: .25em;
+        }
+      }
+    }
   }
 }

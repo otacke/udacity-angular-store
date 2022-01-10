@@ -12,17 +12,37 @@
     <form class="delivery-data" #orderForm="ngForm" (ngSubmit)="sendOrder()">
       <div class="full-name">
         <label for="full-name">Full name</label><br />
-        <input type="text" name="full-name" [(ngModel)]="fullName" placeholder="Homer Simpson" required minlength="6">
+        <input type="text" name="full-name" [(ngModel)]="fullName" placeholder="Homer Simpson" required minlength="6" #nameField="ngModel">
       </div>
       <div class="address">
         <label for="address">Address</label><br />
-        <input type="text" name="address" [(ngModel)]="address" placeholder="742 Evergreen Terrace, Springfield" required minlength="12">
+        <input type="text" name="address" [(ngModel)]="address" placeholder="742 Evergreen Terrace, Springfield" required minlength="12" #addressField="ngModel">
       </div>
       <div class="credit-card-number">
         <label for="credit-card-number">Credit card number</label><br />
-        <input type="string" name="credit-card" [(ngModel)]="creditCardNumber" placeholder="16 digits" required pattern="^[0-9]{16,}$" minlength="16" maxlength="16">
+        <input type="string" name="credit-card" [(ngModel)]="creditCardNumber" placeholder="16 digits" required pattern="^[0-9]{16,}$" minlength="16" maxlength="16" #creditCardNumberField="ngModel" (keypress)="($event.charCode >= 48 && $event.charCode < 58)">
       </div>
       <button type="submit" class="submit-button" [disabled]="orderForm.invalid">Send order</button>
     </form>
+    <div class="error">
+      <div *ngIf="nameField.errors?.['required'] && (nameField.dirty || nameField.touched)" class="message">
+        Your full name is required.
+      </div>
+      <div *ngIf="nameField.errors?.['minlength'] && (nameField.dirty || nameField.touched)" class="message">
+        Your full name must be at least 6 characters long.
+      </div>
+      <div *ngIf="addressField.errors?.['required'] && (addressField.dirty || addressField.touched)" class="message">
+        Your address is required.
+      </div>
+      <div *ngIf="addressField.errors?.['minlength'] && (addressField.dirty || addressField.touched)" class="message">
+        Your address must be at least 12 characters long.
+      </div>
+      <div *ngIf="creditCardNumberField.errors?.['required'] && (creditCardNumberField.dirty || creditCardNumberField.touched)" class="message">
+        Your credit card number is required.
+      </div>
+      <div *ngIf="creditCardNumberField.errors?.['minlength'] && (creditCardNumberField.dirty || creditCardNumberField.touched)" class="message">
+        Your credit card number must be 16 digits long.
+      </div>
+    </div>
   </div>
 </div>
